@@ -1,0 +1,47 @@
+{
+  "events": [
+    {
+      "address": {
+        "address1": "1 Fine Arts Dr",
+        "address2": ", Forest Park",
+        "city": "St. Louis",
+        "state": "MO",
+        "zip": ""
+      },
+      "date": "Fridays, 10 a.m.-9 p.m. and Tuesdays-Thursdays, Saturdays, Sundays, 10 a.m.-5 p.m. Continues through March 31, 2019",
+      "startDate": "Fridays, 10 a.m.-9 p.m. and Tuesdays-Thursdays, Saturdays, Sundays, 10 a.m.-5 p.m. Continues through March 31, 2019",
+      "endDate": "Fridays, 10 a.m.-9 p.m. and Tuesdays-Thursdays, Saturdays, Sundays, 10 a.m.-5 p.m. Continues through March 31, 2019",
+      "description": "Abstract art is a term that includes a wide variety of media: monochromatic color fields, hard-edged abstraction and its flat colors, and the sharply defined edges and optical illusions inherent in op-art&apos;s geometric forms. What links all of these styles together is that they are divorced from the traditional representation of physical objects. For its new exhibition <b><i>Printing Abstraction<\/i><\/b>, the Saint Louis Art Museum draws from its own holdings of abstract art created by printmakers. The show is something of an expansion of the museum&apos;s ongoing main exhibition, <i>Graphic Revolution: American Prints 1960 to Now<\/i>, in that it offers more examples of the printmakers&apos; art and the key role it&apos;s played in the promulgation of abstract art. <i>Printing Abstraction<\/i> is on display from Tuesday through Sunday (November 30 to March 31) in galleries 234 and 235 of the Saint Louis Art Museum (1 Fine Arts Drive; <a href=\"http:\/\/www.slam.org\">www.slam.org<\/a>). Admission is free.",
+      "eventName": "Printing Abstraction",
+      "handle": "https://www.riverfronttimes.com/stlouis/graphic-revolution-american-prints-1960-to-now/Event?oid=26995455",
+      "image": "",
+      "location": "Saint Louis Art Museum",
+      "phone": "314-721-0072",
+      "price": "free admission",
+      "uri": "http:\/\/www.slam.org"
+    },
+    {
+      "address": {
+        "address1": "400 Jefferson Drive",
+        "address2": "",
+        "city": "St. Louis",
+        "state": "MO",
+        "zip": ""
+      },
+      "date": "Fridays, Saturdays, 10 a.m.-11 p.m. and Mondays-Thursdays, Sundays, 10 a.m.-9 p.m. Continues through Feb. 25, 2019",
+      "startDate": "Fridays, Saturdays, 10 a.m.-11 p.m. and Mondays-Thursdays, Sundays, 10 a.m.-9 p.m. Continues through Feb. 25, 2019",
+      "endDate": "Fridays, Saturdays, 10 a.m.-11 p.m. and Mondays-Thursdays, Sundays, 10 a.m.-9 p.m. Continues through Feb. 25, 2019",
+      "description": "Ice skating and hot cocoa go together like Christmas and carols. Every year, <b>Steinberg Skating Rink<\/b> in Forest Park (<a href=\"http:\/\/www.steinbergskatingrink.com\">www.steinbergskatingrink.com<\/a>) is open from early November to late February, providing the Midwest&apos;s largest outdoor rink for the low price of $7 a day. Your $7 is good for the whole day, from 10 a.m. to 9 p.m. Sunday through Thursday and 10 a.m. to 11 p.m. Friday and Saturday. Skate rental is another $7, which is a steal &#x2014; but just because it&apos;s so affordable doesn&apos;t mean you have to bring the family. If you&apos;re tired of the in-laws, their kids or just want to get out of the house, Steinberg is there for you. Nothing clears the head like a brisk skating session and hot cocoa by an outdoor fire.",
+      "eventName": "Steinberg Skating Rink",
+      "handle": "https://www.riverfronttimes.com/stlouis/steinberg-skating-rink/Event?oid=27705585",
+      "image": "",
+      "location": "Steinberg Skating Rink",
+      "phone": "314-367-7465 or 314-361-0613",
+      "price": "$7",
+      "uri": "http:\/\/www.steinbergskatingrink.com"
+    }
+  ],
+  "siteName": "Riverfront Times",
+  "uri": "https:\/\/riverfronttimes.com",
+  "handle": "riverfront_times"
+}

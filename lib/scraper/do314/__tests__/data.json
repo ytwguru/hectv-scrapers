@@ -1,0 +1,42 @@
+{
+  "events": [{
+    "address": {
+      "address1": "1200 S. 7th Street",
+      "city": "St Louis",
+      "state": "MO",
+      "zip": "63104"
+    },
+    "date": "2018-12-19 19:00:00",
+    "startDate": "2018-12-19T19:00-0600",
+    "endDate": "2018-12-19 19:00:00",
+    "description": "Medicine, Benoit’s seventh solo release on Telarc International, a division of Concord Music Group, successfully joins two gifted guitarists/songwriters in a session that proves greater than the sum of its very talented parts. The 11-track recording features seven new Benoit originals co-written with ace songwriter Anders Osborne (his song “Watch the Wind Blow By” was recorded by Tim McGraw in 2002, hitting No. 1 on the country charts for two weeks and selling over three million albums, and Keb’ Mo’s 1999 GRAMMY-winning album Slow Down, featured two songs he had co-written). “Anders and I have been friends for years, and we have a very comfortable relationship,” says Benoit, a GRAMMY®-nominated songwriter, as well as a guitarist and singer with a repertoire that ranges from swamp-pop classics to gritty blues and rootsy jams. “Songwriting needs to feel natural. It needs to flow easily. When he and I went out on the bayou, we came back with seven songs! Anders also played most of the rhythm parts on the album. He does a good job of not stepping on what I’m doing and making it fit the song.” In an unusual twist, Osborne (who also co-produced the album) uses B.B. King’s famous guitar ‘Lucille’ on Medicine. “He played half the album on that guitar, basically anything that’s not slide guitar,” Benoit says. Medicine showcases a lean, energetic young band, and vibe-wise it’s hipper and groovier than anything Benoit has ever done before. The recording also spotlights the work of keyboardist Ivan Neville (son of Aaron Neville and nephew to members of the Neville Brothers), drummer Brady Blade (Emmylou Harris, Steve Earle, Dave Matthews) and bassist Corey Duplechin (Chubby Carrier & Bayou Swamp Band). Fiddler/singer Michael Doucet of BeauSoleil makes a special appearance on three tracks. Medicine is more than another strong entry in Benoit’s increasingly impressive discography it’s one of his most defining albums. ‘Magic happens when you least expect it,’ says Benoit. ‘Most of the stuff here was played live ~ these are mostly first takes. When it came down to playing, we weren’t trying to structure things. We were open to the moment.’ If music has the power to help relieve pain and suffering, then Tab Benoit’s Medicine might be just what the doctor ordered.",
+    "eventName": "Tab Benoit",
+    "handle": "https://do314.com/events/2018/12/19/tab-benoit-with-guest-tbd",
+    "image": "https://res.cloudinary.com/dostuff-media/image/upload//c_fill,g_faces,b_rgb:090909,q_60,fl_lossy,w_1200,h_450/v1539728132/event-10009842.jpg",
+    "location": "The Old Rock House",
+    "phone": "",
+    "price": "$22 Advance | $25 Day of Show",
+    "uri": "http://oldrockhouse.com/"
+  }, {
+    "address": {
+      "address1": "4127 Manchester",
+      "city": "St. Louis",
+      "state": "MO",
+      "zip": "63110"
+    },
+    "date": "2018-12-19 18:30:00",
+    "startDate": "2018-12-19T18:30-0600",
+    "endDate": "2018-12-19 18:30:00",
+    "description": "*It's the most wonderful time FOR A BEER!*\n\nIf you're new to our favorite event of the whole year, here's how it works: Drink beer, get gifts, and hang out with Santa! Plus this year we'll have Celia's Yuletide Express at 7pm and a Christmas Drag show at 8pm going for your pleasure and entertainment!\n\n4 Hands will brew up a special Christmas cask just for tonight. More details coming soon. \n\nAs always, each pint you drink of our exclusive 4 Hands beer will earn you a surprise gift from under our tree, like a t-shirt, neon sign, can of cat food, or a rare bottle from our cellar.\n\nWe wrap more gifts every year, and they run out faster each party. Get here early and walkout happy!\n\n*************************************************************\nTwas a week before Christmas, and all through this town\nthe people were thirsty and had troubles to drown!\nBut a cask was all ready and about to be tapped,\nAnd oodles of prizes had been carefully wrapped.\n\nThe guys down at 4 Hands had filled up our pints\nwith their famous brew all spiced up nice.\nDrinkable cookies were poured then around\nA sudsy baked-good delight everyone downed.\n\nWhen thirsty folks all sought for more than libation,\nWe found other breweries to join the celebration.\nBottles and caps with shirts and excitation,\nMuch brewery schwag was put on location!\n\nEach pint got a ticket, and each ticket a chance,\nThere was more to these prizes than thought at first glance.\nAnd after the cask blew, each guest found with glee,\nThe taps now all flowed at less of a fee!\n\nThe casks were all empty, last call meant no more,\nWe tipped up our glasses and walked toward the door.\nFrom the bar called a fellow we knew on first sight,\n\"Hoppy Beer-mas to all, and to all a good night!\"\n*************************************************************",
+    "eventName": "8th Annual Beer Christmas",
+    "handle": "https://do314.com/events/2018/12/19/8th-annual-beer-christmas",
+    "image": "https://res.cloudinary.com/dostuff-media/image/upload//c_fill,g_faces,b_rgb:090909,q_60,fl_lossy,w_1200,h_450/v1542297440/event-10119791.jpg",
+    "location": "HandleBar",
+    "phone": "(314) 652-2212",
+    "price": "",
+    "uri": "http://www.handlebarstl.com/"
+  }],
+  "handle": "do314",
+  "siteName": "do314",
+  "uri": "https://do314.com"
+}

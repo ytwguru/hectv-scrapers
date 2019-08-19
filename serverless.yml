@@ -27,6 +27,8 @@ provider:
   stage: dev
   region: us-east-2
   profile: eb-cli2
+  apiKeys:
+   - name: ${opt:stage, self:provider.stage}-siteKey
 
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
@@ -45,8 +47,13 @@ provider:
 #            - "/*"
 
 # you can define service wide environment variables here
-#  environment:
-#    variable1: value1
+  environment:
+    MYSQL_HOST: ${self:custom.environment.MYSQL_HOST}
+    MYSQL_DATABASE: ${self:custom.environment.MYSQL_DATABASE}
+    MYSQL_USERNAME: ${self:custom.environment.MYSQL_USERNAME}
+    MYSQL_PASSWORD: ${self:custom.environment.MYSQL_PASSWORD}
+    MYSQL_PORT: ${self:custom.environment.MYSQL_PORT}
+    SCRAPER_MAX_PAGES: ${self:custom.environment.SCRAPER_MAX_PAGES}
 
 # you can add packaging information here
 package:
@@ -59,7 +66,7 @@ package:
 #    - exclude-me-dir/**
 
 plugins:
-  - serverless-bundle
+  - serverless-webpack
   - serverless-offline
 
 functions:
@@ -71,7 +78,7 @@ functions:
 #    Check the event documentation for details
     events:
       - http:
-          path: sites
+          path: sites/{id}/{page}
           method: post
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}
@@ -104,10 +111,12 @@ functions:
 
 #    Define function environment variables here
 #    environment:
-#      variable2: value2
+#      variable1: value1
 
 # you can add CloudFormation resource templates here
-#resources:
+resources:
+# API Gateway Errors
+  - ${file(resources/api-gateway-errors.yml)}
 #  Resources:
 #    NewResource:
 #      Type: AWS::S3::Bucket
@@ -117,3 +126,16 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
+custom:
+  # Our stage is based on what is passed in when running serverless
+  # commands. Or fallsback to what we have set in the provider section.
+  stage: ${opt:stage, self:provider.stage}
+  # Load our secret environment variables based on the current stage.
+  # Fallback to default if it is not in prod.
+  environment: ${file(env.yml):${self:custom.stage}, file(env.yml):default}
+  webpackIncludeModules:
+    packagePath: './package.json'
+  serverless-offline:
+    babelOptions:
+      presets: ["es2015"]
