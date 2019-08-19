@@ -1,0 +1,55 @@
+{
+  "name": "hectv-scrapers",
+  "version": "1.0.0",
+  "description": "Scrape websites to populate the events database",
+  "license": "MIT",
+  "author": "@ytadvisors",
+  "scripts": {
+    "lint": "eslint **/*.js",
+    "test": "NODE_ENV=test jest",
+    "test-debug": "NODE_ENV=test node --inspect-brk node_modules/.bin/jest --runInBand",
+    "test-scraper": "serverless invoke local --function hectvSiteScraper --path __mocks__/serverless/startScrape.json"
+  },
+  "jest": {
+    "automock": false,
+    "testRegex": "\\.test\\.js$",
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/__mocks__/jest/styleMock.js",
+      "\\.(gif|ttf|eot|svg|png)$": "<rootDir>/__mocks__/jest/fileMock.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ytadvisors/hectv-scrapers.git"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "NODE_ENV=production lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,css}": [
+      "pretty-quick --staged",
+      "eslint src/ --fix ",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@babel/preset-env": "7.5.5",
+    "babel-eslint": "10.0.2",
+    "eslint": "6.2.0",
+    "eslint-config-airbnb-base": "14.0.0",
+    "eslint-plugin-import": "2.18.2",
+    "fetch-mock": "7.3.9",
+    "husky": "^1.1.2",
+    "jest": "24.9.0",
+    "lint-staged": "^7.3.0",
+    "serverless-bundle": "1.2.3",
+    "serverless-offline": "5.10.1",
+    "source-map-support": "0.5.13"
+  },
+  "dependencies": {
+    "ajv": "6.10.2",
+    "dayjs": "1.8.15"
+  }
+}
