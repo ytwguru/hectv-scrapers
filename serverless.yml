@@ -24,7 +24,7 @@ provider:
   runtime: nodejs10.x
 
 # you can overwrite defaults here
-  stage: dev
+  stage: prod
   region: us-east-2
   profile: eb-cli2
   apiKeys:

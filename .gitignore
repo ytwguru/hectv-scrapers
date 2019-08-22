@@ -14,7 +14,3 @@ yarn-error.log*
 
 # Environment Files
 env.yml
-
-# Lock Files
-package-lock.json
-yarn.lock
