@@ -32,7 +32,7 @@
   "lint-staged": {
     "*.{js,jsx,css}": [
       "pretty-quick --staged",
-      "eslint src/ --fix ",
+      "eslint --fix ",
       "git add"
     ]
   },
@@ -49,6 +49,8 @@
     "husky": "^1.1.2",
     "jest": "24.9.0",
     "lint-staged": "^7.3.0",
+    "prettier": "1.18.2",
+    "pretty-quick": "1.11.1",
     "serverless-offline": "5.10.1",
     "serverless-plugin-simulate": "0.0.17",
     "serverless-webpack": "5.3.1",
