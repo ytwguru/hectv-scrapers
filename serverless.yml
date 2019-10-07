@@ -3,7 +3,7 @@ provider:
   name: aws
   runtime: nodejs10.x
   stage: ${self:custom.environment.STAGE}
-  region: us-east-2
+  region: us-east-1
   profile: eb-cli2
   apiKeys:
    - name: ${self:custom.environment.STAGE}-siteKey
