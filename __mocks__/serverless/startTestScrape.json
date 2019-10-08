@@ -1,0 +1,13 @@
+{
+  "pathParameters": {
+    "id": "testRequest",
+    "page": 1
+  },
+  "body": "{\"content\":\"hello world\",\"attachment\":\"hello.jpg\"}",
+  "requestContext": {
+    "identity": {
+      "apiKey": "test-invoke-api-key",
+      "cognitoIdentityId": "USER-SUB-1234"
+    }
+  }
+}

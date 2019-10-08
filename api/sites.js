@@ -1,6 +1,7 @@
 import { fetch } from '../lib/helpers/request';
 import { success, error } from '../lib/helpers/response';
 import riverfrontScraper from '../lib/scraper/riverfront_times';
+import testRequest from '../lib/scraper/test_request';
 import do314 from '../lib/scraper/do314';
 import validate from '../lib/validation/scrapedata';
 import store from '../lib/store';
@@ -25,6 +26,11 @@ export const scrape = async (event) => {
         });
       }
       break;
+    case 'testRequest':
+      scrapeResult = await testRequest({ fetch, currentPage: page });
+      return success({
+        success: scrapeResult,
+      });
     case 'do314':
       try {
         scrapeResult = await do314({ fetch, currentPage: page });
