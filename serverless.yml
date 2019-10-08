@@ -9,6 +9,10 @@ provider:
   vpc:
     securityGroupIds:
       — ${self:custom.environment.SECURITY_GROUP}
+    subnetIds:
+      — ${self:custom.environment.SUBNET_A}
+      — ${self:custom.environment.SUBNET_B}
+      — ${self:custom.environment.SUBNET_C}
   apiKeys:
    - name: ${self:custom.environment.STAGE}-siteKey
   environment:
