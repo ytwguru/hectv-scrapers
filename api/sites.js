@@ -10,7 +10,11 @@ export const scrape = async (event) => {
   const db = require('../lib/models').default;
   const { pathParameters: { id, page } = {} } = event;
   let scrapeResult = [];
-  await db.sequelize.authenticate();
+  try {
+    await db.sequelize.authenticate();
+  } catch (err) {
+    console.log('Unable to connect to the database: ', err.message);
+  }
   switch (id) {
     case 'riverfronttimes':
       try {
