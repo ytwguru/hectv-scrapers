@@ -10,7 +10,11 @@ Resources:
         Statement:
           - Effect: Allow
             Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
               - ec2:CreateNetworkInterface
               - ec2:DescribeNetworkInterfaces
               - ec2:DeleteNetworkInterface
+              - rds-db:connect
             Resource: "*"
