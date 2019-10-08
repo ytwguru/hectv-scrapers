@@ -6,8 +6,11 @@ import validate from '../lib/validation/scrapedata';
 import store from '../lib/store';
 
 export const scrape = async (event) => {
+  /* eslint global-require: ["off"] */
+  const db = require('../lib/models').default;
   const { pathParameters: { id, page } = {} } = event;
   let scrapeResult = [];
+  await db.sequelize.authenticate();
   switch (id) {
     case 'riverfronttimes':
       try {
@@ -32,7 +35,7 @@ export const scrape = async (event) => {
   }
   try {
     if (validate(scrapeResult)) {
-      await store({ data: scrapeResult });
+      await store({ db, data: scrapeResult });
       return success({
         success: `${
           scrapeResult.events ? scrapeResult.events.length : 0
