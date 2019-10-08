@@ -1,4 +1,3 @@
-import { fetch } from '../lib/helpers/request';
 import { success, error } from '../lib/helpers/response';
 import riverfrontScraper from '../lib/scraper/riverfront_times';
 import testRequest from '../lib/scraper/test_request';
@@ -19,7 +18,7 @@ export const scrape = async (event) => {
   switch (id) {
     case 'riverfronttimes':
       try {
-        scrapeResult = await riverfrontScraper({ fetch, currentPage: page });
+        scrapeResult = await riverfrontScraper({ currentPage: page });
       } catch (err) {
         return error({
           errorMessage: `Unable to scrape the site. ${err.message}`,
@@ -27,13 +26,13 @@ export const scrape = async (event) => {
       }
       break;
     case 'testRequest':
-      scrapeResult = await testRequest({ fetch, currentPage: page });
+      scrapeResult = await testRequest({ currentPage: page });
       return success({
         success: scrapeResult,
       });
     case 'do314':
       try {
-        scrapeResult = await do314({ fetch, currentPage: page });
+        scrapeResult = await do314({ currentPage: page });
       } catch (err) {
         return error({
           errorMessage: `Unable to scrape the site. ${err.message}`,
