@@ -3,7 +3,7 @@ provider:
   name: aws
   runtime: nodejs10.x
   stage: ${self:custom.environment.STAGE}
-  region: us-east-1
+  region: us-east-2
   profile: eb-cli2
   timeout: 30
   vpc:
@@ -14,7 +14,7 @@ provider:
       - ${self:custom.environment.SUBNET_B}
       - ${self:custom.environment.SUBNET_C}
   apiKeys:
-   - name: ${self:custom.environment.STAGE}-siteKey
+    - name: ${self:custom.environment.STAGE}-siteKey
   environment:
     MYSQL_HOST: ${self:custom.environment.MYSQL_HOST}
     MYSQL_DATABASE: ${self:custom.environment.MYSQL_DATABASE}
@@ -37,11 +37,13 @@ functions:
           method: post
 resources:
   - ${file(resources/api-gateway-errors.yml)}
+  - ${file(resources/lambda-access-role.yml)}
+
 custom:
   stage: ${self:custom.environment.STAGE}
   environment: ${file(env.yml)}
   webpackIncludeModules:
-    packagePath: './package.json'
+    packagePath: "./package.json"
   serverless-offline:
     babelOptions:
       presets: ["es2015"]

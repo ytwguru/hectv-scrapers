@@ -13,14 +13,18 @@ export const scrape = async (event) => {
       try {
         scrapeResult = await riverfrontScraper({ fetch, currentPage: page });
       } catch (err) {
-        return error({ errorMessage: `Unable to scrape the site. ${err.message}` });
+        return error({
+          errorMessage: `Unable to scrape the site. ${err.message}`,
+        });
       }
       break;
     case 'do314':
       try {
         scrapeResult = await do314({ fetch, currentPage: page });
       } catch (err) {
-        return error({ errorMessage: `Unable to scrape the site. ${err.message}` });
+        return error({
+          errorMessage: `Unable to scrape the site. ${err.message}`,
+        });
       }
       break;
     default:
@@ -29,13 +33,16 @@ export const scrape = async (event) => {
   try {
     if (validate(scrapeResult)) {
       await store({ data: scrapeResult });
-      return success({ success: `${scrapeResult.events ? scrapeResult.events.length : 0} results created` });
+      return success({
+        success: `${
+          scrapeResult.events ? scrapeResult.events.length : 0
+        } results created`,
+      });
     }
     return error({ errorMessage: 'Cannot validate the results.' });
   } catch (err) {
     return error({ errorMessage: `Cannot store the results: ${err.message}` });
   }
 };
-
 
 export default (event) => success(event);
