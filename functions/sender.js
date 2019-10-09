@@ -1,16 +1,18 @@
-import { SQS } from 'aws-sdk';
+// import { SQS } from 'aws-sdk';
 import { success, error } from '../lib/helpers/response';
 
-const { REGION, QUEUE_NAME } = process.env;
-const sqs = new SQS({
-  region: { REGION },
-});
+/* const { REGION, QUEUE_NAME } = process.env;
+const sqs = new SQS(); */
 
 export const queue = async (event, context) => {
   try {
-    const { pathParameters: { id, page } = {} } = event;
+    return success({
+      message: '',
+      context,
+    });
+    /* const { pathParameters: { id, page } = {} } = event;
     const accountId = context['account-id'];
-    const queueUrl = `https://sqs.us-east-1.amazonaws.com/${accountId}/${QUEUE_NAME}`;
+    const queueUrl = `https://sqs.${REGION}.amazonaws.com/${accountId}/${QUEUE_NAME}`;
 
     // SQS message parameters
     const params = {
@@ -23,7 +25,7 @@ export const queue = async (event, context) => {
       message: `Sent to ${queueUrl}`,
       messageId: data.MessageId,
       context,
-    });
+    }); */
   } catch (err) {
     return error({
       message: '',
