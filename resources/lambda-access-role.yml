@@ -13,6 +13,9 @@ Resources:
               - logs:CreateLogGroup
               - logs:CreateLogStream
               - logs:PutLogEvents
+              - sqs:SendMessage
+              - sqs:GetQueueUrl
+              - sqs:ListQueues
               - ec2:CreateNetworkInterface
               - ec2:DescribeNetworkInterfaces
               - ec2:DeleteNetworkInterface

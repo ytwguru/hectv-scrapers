@@ -22,8 +22,18 @@ plugins:
   - serverless-offline
 functions:
   hectvSiteScraper:
-    handler: api/sites.scrape
+    handler: functions/receiver.scrape
     description: Scrapes the websites to populate the events.
+    reservedConcurrency: 10
+    events:
+      - sqs:
+          arn:
+            Fn::GetAtt:
+              - ${self:custom.environment.QUEUE_NAME}
+              - Arn
+  hectvSiteQueue:
+    handler: functions/sender.queue
+    description: Queues new websites to be scraped.
     events:
       - http:
           path: sites/{id}/{page}
@@ -31,6 +41,7 @@ functions:
 resources:
   - ${file(resources/api-gateway-errors.yml)}
   - ${file(resources/lambda-access-role.yml)}
+  - ${file(resources/simple-queue.yml)}
 
 custom:
   stage: ${self:custom.environment.STAGE}

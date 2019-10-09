@@ -1,0 +1,5 @@
+Resources:
+  ScrapeQueue:
+    Type: "AWS::SQS::Queue"
+    Properties:
+      QueueName: ${self:custom.environment.QUEUE_NAME}

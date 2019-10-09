@@ -1,14 +1,15 @@
-import { success, error } from '../lib/helpers/response';
+import { sqsSuccess, sqsError } from '../lib/helpers/response';
 import riverfrontScraper from '../lib/scraper/riverfront_times';
 import testRequest from '../lib/scraper/test_request';
 import do314 from '../lib/scraper/do314';
 import validate from '../lib/validation/scrapedata';
 import store from '../lib/store';
+import db from '../lib/models';
 
 export const scrape = async (event) => {
   /* eslint global-require: ["off"] */
-  const db = require('../lib/models').default;
-  const { pathParameters: { id, page } = {} } = event;
+  const parsedBody = JSON.parse(event.Records[0].body);
+  const { id, page } = parsedBody || {};
   let scrapeResult = [];
   try {
     await db.sequelize.authenticate();
@@ -20,41 +21,43 @@ export const scrape = async (event) => {
       try {
         scrapeResult = await riverfrontScraper({ currentPage: page });
       } catch (err) {
-        return error({
+        return sqsError({
           errorMessage: `Unable to scrape the site. ${err.message}`,
         });
       }
       break;
     case 'testRequest':
       scrapeResult = await testRequest({ currentPage: page });
-      return success({
+      return sqsSuccess({
         success: scrapeResult,
       });
     case 'do314':
       try {
         scrapeResult = await do314({ currentPage: page });
       } catch (err) {
-        return error({
+        return sqsError({
           errorMessage: `Unable to scrape the site. ${err.message}`,
         });
       }
       break;
     default:
-      return error({ errorMessage: 'The requested site is not supported.' });
+      return sqsError({ errorMessage: 'The requested site is not supported.' });
   }
   try {
     if (validate(scrapeResult)) {
       await store({ db, data: scrapeResult });
-      return success({
+      return sqsSuccess({
         success: `${
           scrapeResult.events ? scrapeResult.events.length : 0
         } results created`,
       });
     }
-    return error({ errorMessage: 'Cannot validate the results.' });
+    return sqsError({ errorMessage: 'Cannot validate the results.' });
   } catch (err) {
-    return error({ errorMessage: `Cannot store the results: ${err.message}` });
+    return sqsError({
+      errorMessage: `Cannot store the results: ${err.message}`,
+    });
   }
 };
 
-export default (event) => success(event);
+export default (event) => sqsSuccess(event);
