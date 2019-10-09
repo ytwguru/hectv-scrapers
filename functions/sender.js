@@ -1,11 +1,10 @@
 import { SQS } from 'aws-sdk';
 import { success, error } from '../lib/helpers/response';
 
-const { REGION, QUEUE_NAME } = process.env;
-const sqs = new SQS();
-
 export const queue = async (event, context) => {
   try {
+    const { REGION, QUEUE_NAME } = process.env;
+    const sqs = new SQS();
     const { pathParameters: { id, page } = {} } = event;
     const { invokedFunctionArn } = context || {};
     const accountId = invokedFunctionArn && invokedFunctionArn.split(':')[4];
