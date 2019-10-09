@@ -26,10 +26,12 @@ export const queue = async (event, context) => {
     }
     return error({
       message: '',
+      errorMessage: `Invalid accountId: ${accountId}`,
     });
   } catch (err) {
     return error({
       message: '',
+      errorMessage: err.message,
     });
   }
 };
