@@ -1,13 +1,12 @@
-import { SQS } from 'aws-sdk';
 import { success, error } from '../lib/helpers/response';
 
 const awsXRay = require('aws-xray-sdk');
-awsXRay.captureAWS(require('aws-sdk'));
+const AWS = awsXRay.captureAWS(require('aws-sdk'));
 
 export const queue = async (event, context) => {
   try {
     const { REGION, QUEUE_NAME } = process.env;
-    const sqs = new SQS();
+    const sqs = new AWS.SQS();
     const { pathParameters: { id, page } = {} } = event;
     const { invokedFunctionArn } = context || {};
     const accountId = invokedFunctionArn && invokedFunctionArn.split(':')[4];
