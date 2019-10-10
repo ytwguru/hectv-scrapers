@@ -5,6 +5,9 @@ import do314 from '../lib/scraper/do314';
 import validate from '../lib/validation/scrapedata';
 import store from '../lib/store';
 
+const awsXRay = require('aws-xray-sdk');
+awsXRay.captureAWS(require('aws-sdk'));
+
 export const scrape = async (event) => {
   /* eslint global-require: ["off"] */
   const db = require('../lib/models').default;

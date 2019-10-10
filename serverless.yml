@@ -6,7 +6,7 @@ provider:
   region: us-east-2
   profile: eb-cli2
   timeout: 30
-  tracing: true 
+  tracing: true
   apiKeys:
     - name: ${self:custom.environment.STAGE}-siteKey
   environment:

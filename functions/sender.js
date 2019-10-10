@@ -1,6 +1,9 @@
 import { SQS } from 'aws-sdk';
 import { success, error } from '../lib/helpers/response';
 
+const awsXRay = require('aws-xray-sdk');
+awsXRay.captureAWS(require('aws-sdk'));
+
 export const queue = async (event, context) => {
   try {
     const { REGION, QUEUE_NAME } = process.env;
