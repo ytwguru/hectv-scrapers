@@ -19,5 +19,6 @@ Resources:
               - ec2:CreateNetworkInterface
               - ec2:DescribeNetworkInterfaces
               - ec2:DeleteNetworkInterface
+              - xray:*
               - rds-db:connect
             Resource: "*"
