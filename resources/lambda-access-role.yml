@@ -13,7 +13,6 @@ Resources:
               - logs:CreateLogGroup
               - logs:CreateLogStream
               - logs:PutLogEvents
-              - sqs:SendMessage
               - sqs:GetQueueUrl
               - sqs:ListQueues
               - ec2:CreateNetworkInterface
@@ -21,4 +20,13 @@ Resources:
               - ec2:DeleteNetworkInterface
               - xray:*
               - rds-db:connect
-            Resource: "*"
+            Resource: ${self:custom.environment.SCRAPER_ARN}
+          - Effect: Allow
+            Action:
+              - logs:CreateLogGroup
+              - logs:CreateLogStream
+              - logs:PutLogEvents
+              - sqs:SendMessage
+              - sqs:GetQueueUrl
+              - xray:*
+            Resource: ${self:custom.environment.QUEUE_ARN}
