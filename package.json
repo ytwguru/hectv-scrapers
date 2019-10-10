@@ -74,6 +74,7 @@
     "request": "2.88.0",
     "request-promise": "4.2.4",
     "sequelize": "5.15.1",
+    "uniqid": "5.0.3",
     "user-agents": "1.0.403",
     "webpack": "4.41.0"
   }
