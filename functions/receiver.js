@@ -4,10 +4,10 @@ import testRequest from '../lib/scraper/test_request';
 import do314 from '../lib/scraper/do314';
 import validate from '../lib/validation/scrapedata';
 import store from '../lib/store';
-import db from '../lib/models';
 
 export const scrape = async (event) => {
   /* eslint global-require: ["off"] */
+  const db = require('../lib/models').default;
   const parsedBody = JSON.parse(event.Records[0].body);
   const { id, page } = parsedBody || {};
   let scrapeResult = [];
@@ -15,6 +15,10 @@ export const scrape = async (event) => {
     await db.sequelize.authenticate();
   } catch (err) {
     console.log('Unable to connect to the database: ', err.message);
+    return sqsError({
+      errorMessage: `Unable to connect to the database: ${err.message}`,
+      event,
+    });
   }
   switch (id) {
     case 'riverfronttimes':
@@ -23,6 +27,7 @@ export const scrape = async (event) => {
       } catch (err) {
         return sqsError({
           errorMessage: `Unable to scrape the site. ${err.message}`,
+          event,
         });
       }
       break;
@@ -37,11 +42,15 @@ export const scrape = async (event) => {
       } catch (err) {
         return sqsError({
           errorMessage: `Unable to scrape the site. ${err.message}`,
+          event,
         });
       }
       break;
     default:
-      return sqsError({ errorMessage: 'The requested site is not supported.' });
+      return sqsError({
+        errorMessage: 'The requested site is not supported.',
+        event,
+      });
   }
   try {
     if (validate(scrapeResult)) {
@@ -52,10 +61,14 @@ export const scrape = async (event) => {
         } results created`,
       });
     }
-    return sqsError({ errorMessage: 'Cannot validate the results.' });
+    return sqsError({
+      errorMessage: 'Cannot validate the results.',
+      event,
+    });
   } catch (err) {
     return sqsError({
       errorMessage: `Cannot store the results: ${err.message}`,
+      event,
     });
   }
 };
