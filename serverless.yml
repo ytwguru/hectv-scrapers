@@ -22,6 +22,7 @@ package:
 plugins:
   - serverless-webpack
   - serverless-offline
+  - serverless-plugin-tracing
 functions:
   hectvSiteScraper:
     handler: functions/receiver.scrape
