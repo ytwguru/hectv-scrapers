@@ -7,6 +7,13 @@ provider:
   profile: eb-cli2
   timeout: 30
   tracing: true
+  vpc:
+    securityGroupIds:
+      - ${self:custom.environment.SECURITY_GROUP}
+    subnetIds:
+      - ${self:custom.environment.SUBNET_A}
+      - ${self:custom.environment.SUBNET_B}
+      - ${self:custom.environment.SUBNET_C}
   apiKeys:
     - name: ${self:custom.environment.STAGE}-siteKey
   environment:
@@ -29,13 +36,6 @@ functions:
     handler: functions/receiver.scrape
     description: Scrapes the websites to populate the events.
     reservedConcurrency: 10
-    vpc:
-      securityGroupIds:
-        - ${self:custom.environment.SECURITY_GROUP}
-      subnetIds:
-        - ${self:custom.environment.SUBNET_A}
-        - ${self:custom.environment.SUBNET_B}
-        - ${self:custom.environment.SUBNET_C}
     events:
       - sqs:
           arn:
