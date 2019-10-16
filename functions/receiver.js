@@ -14,7 +14,7 @@ export const scrape = async (event) => {
   const parsedBody = JSON.parse(event.Records[0].body);
   const { id, page } = parsedBody || {};
   let scrapeResult = [];
-  /* try {
+  try {
     await db.sequelize.authenticate();
   } catch (err) {
     console.log('Unable to connect to the database: ', err.message);
@@ -22,7 +22,7 @@ export const scrape = async (event) => {
       errorMessage: `Unable to connect to the database: ${err.message}`,
       event,
     });
-  } */
+  }
   switch (id) {
     case 'riverfronttimes':
       try {
@@ -34,6 +34,10 @@ export const scrape = async (event) => {
         });
       }
       break;
+    case 'testResponse':
+      return sqsSuccess({
+        success: 'Completed',
+      });
     case 'testRequest':
       try {
         scrapeResult = await testRequest({ currentPage: page });
