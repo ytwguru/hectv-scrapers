@@ -36,6 +36,7 @@ functions:
         - ${self:custom.environment.SUBNET_A}
         - ${self:custom.environment.SUBNET_B}
         - ${self:custom.environment.SUBNET_C}
+        - ${self:custom.environment.SUBNET_D}
     events:
       - sqs:
           arn:
