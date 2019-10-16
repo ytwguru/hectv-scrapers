@@ -35,10 +35,17 @@ export const scrape = async (event) => {
       }
       break;
     case 'testRequest':
-      scrapeResult = await testRequest({ currentPage: page });
-      return sqsSuccess({
-        success: scrapeResult,
-      });
+      try {
+        scrapeResult = await testRequest({ currentPage: page });
+        return sqsSuccess({
+          success: scrapeResult,
+        });
+      } catch (err) {
+        return sqsError({
+          errorMessage: `Unable to scrape the site. ${err.message}`,
+          event,
+        });
+      }
     case 'do314':
       try {
         scrapeResult = await do314({ currentPage: page });
