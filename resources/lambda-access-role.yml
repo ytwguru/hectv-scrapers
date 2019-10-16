@@ -13,12 +13,8 @@ Resources:
               - logs:CreateLogGroup
               - logs:CreateLogStream
               - logs:PutLogEvents
-              - sqs:GetQueueUrl
-              - sqs:ListQueues
-              - sqs:SendMessage
-              - ec2:CreateNetworkInterface
-              - ec2:DescribeNetworkInterfaces
-              - ec2:DeleteNetworkInterface
+              - sqs:*
+              - ec2:*
               - xray:*
               - rds:*
               - rds-db:*
