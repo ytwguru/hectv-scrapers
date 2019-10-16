@@ -7,6 +7,7 @@ provider:
   profile: eb-cli2
   timeout: 30
   tracing: true
+  memorySize: 3000
   apiKeys:
     - name: ${self:custom.environment.STAGE}-siteKey
   environment:
