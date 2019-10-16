@@ -4,6 +4,7 @@ const awsXRay = require('aws-xray-sdk');
 const AWS = awsXRay.captureAWS(require('aws-sdk'));
 
 export const queue = async (event, context) => {
+  let queueUrl = '';
   try {
     const { REGION, QUEUE_NAME } = process.env;
     const sqs = new AWS.SQS();
@@ -11,7 +12,7 @@ export const queue = async (event, context) => {
     const { invokedFunctionArn } = context || {};
     const accountId = invokedFunctionArn && invokedFunctionArn.split(':')[4];
     if (accountId) {
-      const queueUrl = `https://sqs.${REGION}.amazonaws.com/${accountId}/${QUEUE_NAME}`;
+      queueUrl = `https://sqs.${REGION}.amazonaws.com/${accountId}/${QUEUE_NAME}`;
       // SQS message parameters
       const params = {
         MessageBody: JSON.stringify({ id, page }),
@@ -27,12 +28,12 @@ export const queue = async (event, context) => {
     }
     return error({
       message: '',
-      errorMessage: `Invalid accountId: ${accountId}`,
+      errorMessage: `Can not create queueUrl: Invalid accountId: ${accountId}`,
     });
   } catch (err) {
     return error({
       message: '',
-      errorMessage: err.message,
+      errorMessage: `Error sending message to ${queueUrl}: ${err.message}`,
     });
   }
 };
