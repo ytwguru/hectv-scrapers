@@ -21,4 +21,5 @@ Resources:
               - ec2:DeleteNetworkInterface
               - xray:*
               - rds:*
+              - rds-db:*
             Resource: "*"
