@@ -37,11 +37,7 @@ functions:
         - ${self:custom.environment.SUBNET_A}
         - ${self:custom.environment.SUBNET_B}
     events:
-      - sqs:
-          arn:
-            Fn::GetAtt:
-              - ${self:custom.environment.QUEUE_NAME}
-              - Arn
+      - sqs: ${self:custom.environment.QUEUE_SQS}
   hectvSiteQueue:
     handler: functions/sender.queue
     description: Queues new websites to be scraped.
