@@ -3,4 +3,4 @@ Resources:
     Type: "AWS::SQS::Queue"
     Properties:
       QueueName: ${self:custom.environment.QUEUE_NAME}
-      VisibilityTimeout: 450
+      VisibilityTimeout: 600
