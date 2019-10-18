@@ -45,6 +45,7 @@ functions:
       - http:
           path: sites/{id}/{page}
           method: post
+          private: true
 resources:
   - ${file(resources/api-gateway-errors.yml)}
   - ${file(resources/lambda-access-role.yml)}
