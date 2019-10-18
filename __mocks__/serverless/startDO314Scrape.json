@@ -1,13 +1,7 @@
 {
-  "pathParameters": {
-    "id": "do314",
-    "page": "2019-10-07"
-  },
-  "body": "{\"content\":\"hello world\",\"attachment\":\"hello.jpg\"}",
-  "requestContext": {
-    "identity": {
-      "apiKey": "test-invoke-api-key",
-      "cognitoIdentityId": "USER-SUB-1234"
+  "Records": [
+    {
+      "body": "{\"id\": \"do314\",\"page\": 1}"
     }
-  }
+  ]
 }

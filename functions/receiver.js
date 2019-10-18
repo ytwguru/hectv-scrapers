@@ -10,7 +10,9 @@ awsXRay.captureAWS(require('aws-sdk'));
 
 export const scrape = async (event) => {
   /* eslint global-require: ["off"] */
+  console.log('HERE');
   const db = require('../lib/models').default;
+  console.dir(event);
   const parsedBody = JSON.parse(event.Records[0].body);
   const { id, page } = parsedBody || {};
   let scrapeResult = [];

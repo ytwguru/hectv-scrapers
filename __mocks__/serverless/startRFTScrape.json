@@ -1,13 +1,7 @@
 {
-  "pathParameters": {
-    "id": "riverfronttimes",
-    "page": 1
-  },
-  "body": "{\"content\":\"hello world\",\"attachment\":\"hello.jpg\"}",
-  "requestContext": {
-    "identity": {
-      "apiKey": "test-invoke-api-key",
-      "cognitoIdentityId": "USER-SUB-1234"
+  "Records": [
+    {
+      "body": "{\"id\": \"riverfronttimes\",\"page\": 1}"
     }
-  }
+  ]
 }
