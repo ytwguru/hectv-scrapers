@@ -1,6 +1,10 @@
 module.exports = {
-  "extends": "airbnb-base",
-  "env": {
-    "jest": true
+  extends: "airbnb-base",
+  env: {
+    jest: true
+  },
+  rules: {
+    "no-underscore-dangle": ["off"],
+    "global-require": ["off"]
   }
 };

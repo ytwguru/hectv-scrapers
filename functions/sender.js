@@ -1,7 +1,12 @@
 import { success, error } from '../lib/helpers/response';
 
-const awsXRay = require('aws-xray-sdk');
-const AWS = awsXRay.captureAWS(require('aws-sdk'));
+let AWS;
+if (process.env._X_AMZN_TRACE_ID) {
+  const awsXRay = require('aws-xray-sdk');
+  AWS = awsXRay.captureAWS(require('aws-sdk'));
+} else {
+  AWS = require('aws-sdk');
+}
 
 export const queue = async (event, context) => {
   let queueUrl = '';

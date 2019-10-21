@@ -36,6 +36,7 @@ functions:
       subnetIds:
         - ${self:custom.environment.SUBNET_A}
         - ${self:custom.environment.SUBNET_B}
+        - ${self:custom.environment.SUBNET_C}
     events:
       - sqs: ${self:custom.environment.QUEUE_SQS}
   hectvSiteQueue:

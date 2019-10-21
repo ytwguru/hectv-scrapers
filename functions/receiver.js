@@ -5,12 +5,32 @@ import do314 from '../lib/scraper/do314';
 import validate from '../lib/validation/scrapedata';
 import store from '../lib/store';
 
-const awsXRay = require('aws-xray-sdk');
-awsXRay.captureAWS(require('aws-sdk'));
+if (process.env._X_AMZN_TRACE_ID) {
+  const AWSXRay = require('aws-xray-sdk');
+  const AWS = AWSXRay.captureAWS(require('aws-sdk'));
+  const https = require('https');
+  AWSXRay.captureHTTPsGlobal(https);
+
+  const getKeepAliveAgent = () => {
+    const options = {
+      keepAlive: true,
+      maxSockets: 50, // from aws-sdk
+      rejectUnauthorized: true, // from aws-sdk
+    };
+    const agent = new https.Agent(options);
+    agent.setMaxListeners(0); // from aws-sdk
+    return agent;
+  };
+
+  AWS.config.update({
+    httpOptions: {
+      agent: getKeepAliveAgent(),
+    },
+  });
+}
 
 export const scrape = async (event) => {
   /* eslint global-require: ["off"] */
-  console.log('HERE');
   const db = require('../lib/models').default;
   console.dir(event);
   const parsedBody = JSON.parse(event.Records[0].body);
