@@ -98,7 +98,7 @@ export const scrape = async (event) => {
       });
     }
     return sqsError({
-      errorMessage: 'Cannot validate the results.',
+      errorMessage: 'Cannot validate the results. ',
       event,
     });
   } catch (err) {
